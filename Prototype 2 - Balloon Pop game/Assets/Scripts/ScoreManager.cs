@@ -1,10 +1,7 @@
 using UnityEngine;
 
-public class MoveUp : MonoBehaviour
+public class ScoreManager : MonoBehaviour
 {
-    public float speed = 3.0f;
-
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -14,6 +11,6 @@ public class MoveUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.up * speed * Time.deltaTime); // Move the balloon at a fixed rate of speed up the y axis
+        
     }
 }
