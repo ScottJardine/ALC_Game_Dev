@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Balloon : MonoBehaviour
@@ -12,22 +14,26 @@ public class Balloon : MonoBehaviour
 
     public GameObject popEffect; //Reference Pop Effect Particle System
 
-    // Start is called before the first frame update
-    void Start()
+    // Update is called once per frame
+
+void Start
     {
-        
+        //reference ScoreManager Component
+        scoreManager = GameObject.Find("ScoreManager")
+        GetComponent<ScoreManager>();
     }
 
-    // Update is called once per frame
     void OnMouseDown()
     {
         //Reduce clicks by one
         clickToPop -= 1;
         //Increase balloon size
         transform.localScale += Vector3.one * scaleToIncrease;
-        // Check to see if the ballon has popped
-        if(clickToPop == 0)
+    // Check to see if the ballon has popped
+    if (clickToPop == 0)
         {
+        scoreManager.IncreaseScoreText(scoreToGive); //Increase score
+        //Instantiate (popEffect, transform.position, transfrom.rotation); // Instantiate Pareticle Effect - POP Effect"
             Destroy(gameObject); // pop the balloon
         }
     }
